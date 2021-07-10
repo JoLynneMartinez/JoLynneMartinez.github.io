@@ -14,335 +14,244 @@
 html {
   box-sizing: border-box;
 
+
   /* Set font size for easy rem calculations
    * default document font size = 16px, 1rem = 16px, 100% = 16px
    * (100% / 16px) * 10 = 62.5%, 1rem = 10px, 62.5% = 10px
   */
   font-size: 62.5%;
   scroll-behavior: smooth;
+  min-height: 100%;
 }
 
-/* A few media query to set some font sizes at different screen sizes.
- * This helps automate a bit of responsiveness.
- * The trick is to use the rem unit for size values, margin and padding.
- * Because rem is relative to the document font size
- * when we scale up or down the font size on the document
- * it will affect all properties using rem units for the values.
+/*
+1920×1080 (8.89%)
+1366×768 (8.44%)
+360×640 (7.28%)
+414×896 (4.58%)
+1536×864 (3.88%)
+375×667 (3.75%) 
 */
-
-/* I am using the em unit for breakpoints
- * The calculation is the following
- * screen size divided by browser base font size
- * As an example: a breakpoint at 980px
- * 980px / 16px = 61.25em
-*/
-
-/* 1200px / 16px = 75em */
-@media (max-width: 75em) {
-  html {
-    font-size: 60%;
-  }
-}
-
-/* 980px / 16px = 61.25em */
-@media (max-width: 61.25em) {
-  html {
-    font-size: 58%;
-  }
-}
-
-/* 460px / 16px = 28.75em */
-@media (max-width: 28.75em) {
-  html {
-    font-size: 55%;
-  }
-}
 
 /* Base styles */
 
 body {
   font-family: 'Quattrocento Sans', sans-serif;
-  font-size: 1.8rem; /* 18px */
+  font-size: clamp(1rem, 0.3932rem + 2.5890vw, 3.5rem);
   line-height: 1.4;
-  color: #eeeeee;
+  color: #3c3d3e;
+  overflow-x: hidden;
+  min-height: 100%;
 }
 
 h1,
 h2,
 h3 {
-  font-family: 'Quattrocento', serif;
   text-align: center;
-}
-
-h3 {
-  font-size: 3.2rem;
-}
-
-ul {
-  list-style: none;
 }
 
 a {
   text-decoration: none;
-  color: #eeeeee;
 }
 
-img {
-  display: block;
-  width: 100%;
+a:link, a:visited {
+  color: #3c3d3e;
+  }
+
+a:hover, a:focus {
+  color: #f5df4d;
+  background-color: #3c3d3e;
+  border-radius: 1rem;
 }
 
 /* nav */
 
-#navbar {
+nav {
   display: flex;
-  justify-content: flex-end;
-  position: fixed;
-  top: 0;
-  left: 0;
+  align-items: flex-end;
+  justify-content: space-between;
+  list-style: none;
   width: 100%;
-  background-image: linear-gradient(#77628c, #dbcfde);
+  background-image: linear-gradient(#f5df4D, #f9ed99);
+  padding-bottom: 1rem;
+  margin-top: -2rem;
   z-index: 10;
+  overflow: hidden;
 }
 
-.nav-list {
+#item-div {
   display: flex;
+}
+
+.nav-item {
+  display: flex;
+  justify-content: end;
+  font-size: 2.2rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  outline: 0;
   margin-right: 2rem;
 }
 
-@media (max-width: 28.75em) {
-  .nav {
-    justify-content: center;
-  }
-
-  .nav-list {
-    margin: 0 1rem;
-  }
-}
-
-.nav-list a {
-  display: block;
-  font-size: 2.2rem;
-  padding: 2rem;
-}
-
-.nav-list a:hover {
-  color: #5f4e70;
-}
-
-/* Welcome section */
-
-.welcome-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  height: 100vh;
-  top-padding: 100px;
+#skip a {
+  position: absolute;
+  left: -1000rem;
+  width: 1rem;
+  height: 1rem;
   overflow: hidden;
-  text-align: center;
-  background-image: linear-gradient(#eeeeee, #77628c);
 }
 
-.container {
-  position: relative;
-  width: 100%;
+#skip a:focus, #skip a:active {
+  position: static;
+  left: 0;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  display: flex;
+  justify-content: start;
+  font-size: 2.2rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  outline: 0;
 }
 
-#hero_photo {
-  display: block;
+
+/*Safari has an issue whereby unordered lists with a list-style value of none applied to them will not 
+be recognized as a list in the accessibility tree. To address this, add a zero-width space as 
+pseudo-content before each list item to ensure the list is recognized properly. This ensures the design 
+is unaffected by the bug fix and that list items are not improperly described.*/
+li::before {
+  content: "\200B";
+}
+
+
+/* main */
+
+main {
+  background-image: linear-gradient(#f9ed99, #fffef8);
+  padding-top: 1rem;
+}
+
+h1 {
+  font-size: 125%;
+  margin-bottom: 1rem;
+}
+
+h2{
+  font-size: 75%;
+}
+
+h2, h3 {
+  font-weight: normal;
+}
+
+h3 {
+  font-size: 50%;
+  margin-bottom: 2rem;
+}
+
+#hero-photo {
+  display: flex;
+  justify-content: center;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 67px;
-  display: block;
-  width: 50%;
+  padding-bottom: 2rem;
+  width: clamp(350px, 53%, 800px);
 }
 
-@media only screen and (max-width: 600px) {
-  #hero_photo {
-    width: 100%;
-  }
+#about {
+  padding-top: 1rem;
 }
 
-.overlay {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-  width: 100%;
-  opacity: 0;
-  transition: .5s ease;
-  background-image: linear-gradient(#dbcfde, #77628c);
+#about-section {
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+#steps {
+  font-size: 60%;
+  padding-top: 1.5rem;
+  list-style: inside;
+  list-style-type: disc;
+  width: max-content;
+  margin: 0 auto;
+  text-align: left;
+}
+
+#recommendations {
+  font-size: 75%;
+  padding-top: 1.5rem;
+  text-align: center;
+  padding-bottom: 3rem;
+}
+
+#beautiful {
+  width: fit-content;
+  color: #3c3d3e;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: solid;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-bottom: 3.5rem;
   text-align: center;
 }
 
-.container:hover .overlay {
-  opacity: 0.9;
+#certificates {
+  display: flex;
+  justify-content: space-around;
 }
 
-.text {
-  color: eeeeee;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  text-shadow: 2px 2px 4px #000000;
-  font-size: x-large;
-}
-
-#welcome-section h1 {
-  font-size: xx-large;
-}
-
-#photo-credit {
-  position: relative;
-  top: 170px;
-  right: 0;
-  width: 625px;
-  height: 25px;
-}
-
-#photo-credit p {
-  color: #eeeeee;
-  font-size: small;
-  font-style: italic;
-}
-
-/* Projects section */
-
-#projects {
-  text-align: center;
-  padding: 10rem 2rem;
-  background-color: #eeeeee;
-  background-image: url("https://drive.google.com/uc?id=1zbN8D-s9CN3AMKubU9raFe0_I_bKfdBV");
-}
-
-#photo-credit {
-  color: #77628c;
-  font-size: 1px;
-  font-type: italic;
-  text-align: right;
-}
-
-.projects-section-header {
-  font-family: 'Quattrocento Sans', sans-serif;
-  max-width: 640px;
-  margin: 0 auto 3rem auto;
-  color: #77628c;
+#w3c, #deque {
+  width: 49.5%;
+  vertical-align: top;
 }
 
 @media (max-width: 28.75em) {
-  .projects-section-header {
+  #certificates {
     font-size: 4rem;
   }
 }
 
-/* "Automagic" image grid using no media queries */
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  grid-gap: 4rem;
-  width: 100%;
-  max-width: 1280px;
-  margin: 0 auto;
-  margin-bottom: 6rem;
+/*@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  /*
+  [class*="column"] {
+    width: 100%;
+  }*/
+
+#medium {
+  margin-top: 6rem;
+  display: block;
+  text-align: center;
+  margin-bottom: 4rem;
 }
 
-@media (max-width: 30.625em) {
-  #projects {
-    padding: 6rem 1rem;
-  }
-
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.project {
-  background-color: rgba(119, 98, 140, 0.75);
-  box-shadow: 5px 10px 10px #b59cbb;
-  border-radius: 25px;
-}
-
-.project img {
--webkit-filter: brightness(50%);
--webkit-transition: all 1s ease;
--moz-transition: all 1s ease;
--o-transition: all 1s ease;
--ms-transition: all 1s ease;
-transition: all 1s ease;
-}
-
-.project img:hover {
--webkit-filter: brightness(100%);
-}
-
-.project-image {
-  height: calc(100% - 6.8rem);
-  width: 100%;
-  object-fit: cover;
-}
-
-.project-title {
-  font-family: 'Quattrocento', serif;
-  font-size: 2rem;
-  padding: 2rem 0.5rem;
-}
-
-.btn {
-  display: inline-block;
-  padding: 1rem 2rem;
-  border-radius: 25px;
-}
-
-.btn-show-all {
-  font-size: 2rem
-    color: #eeeeee;
-  background-color: rgba(119, 98, 140, 0.75);
-  transition: background 0.3s ease-out;
-}
-
-.btn-show-all:hover {
-  background: #77628c;
-}
-
-.btn-show-all:hover > i {
-  transform: translateX(2px);
-}
-
-.btn-show-all > i {
-  margin-left: 10px;
-  transform: translateX(0);
-  transition: transform 0.3s ease-out;
+#medium-link {
+  font-size: x-large;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 2px solid #3c3d3e;
+  outline: 0;
+  color: #f5df4d;
+  background-color: #3c3d3e;
+  border-radius: 1rem;
 }
 
 /* Contact section */
 
-.contact-section {
+#contact {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  background-image: linear-gradient( #fffef8, #f9ed99);
+}
+
+#contact h2 {
+  margin-bottom: 1.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  text-align: center;
   width: 100%;
-  height: 80vh;
-  padding: 0 2rem;
-  background-image: linear-gradient(#dbcfde, #77628c);
-}
-
-.contact-section-header h3 {
-  text-shadow: 2px 2px 4px #3c3245;
-}
-
-.contact-section-header p {
-  text-shadow: 2px 2px 4px #3c3245;
-}
-
-.contact-section-header > h3 {
-  font-size: 4rem;
 }
 
 @media (max-width: 28.75em) {
@@ -351,35 +260,56 @@ transition: all 1s ease;
   }
 }
 
-.contact-section-header > p {
-  font-style: italic;
-  font-size: xx-large;
-}
-
-.contact-links {
+#contact-links {
   display: flex;
   justify-content: center;
-  width: 100%;
-  max-width: 980px;
-  margin-top: 4rem;
-  flex-wrap: wrap;
+  gap: 3rem;
 }
 
-.contact-details {
-  font-size: 2.4rem;
-  text-shadow: 2px 2px 1px #1f1f1f;
-  transition: transform 0.3s ease-out;
+.contact-link, #tooltip {
+  padding: 1rem;
+  outline: 0;
 }
 
-.contact-details:hover {
-  transform: translateY(8px);
+/* Tooltip container */
+#tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+#tooltip .tooltiptext {
+  visibility: hidden;
+  width: 20rem;
+  background-color: #3c3d3e;
+  color: #f5df4d;
+  font-size: smaller;
+  text-align: center;
+  padding: 0.25rem;
+  border-radius: 1rem;
+  top: -5px;
+  left: 105%;
+ 
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+#tooltip:hover .tooltiptext {
+  visibility: visible;
 }
 
 footer {
   font-family: 'Quattrocento Sans', sans-serif;
-  color: #c2c2c2;
+  color: #3c3d3e;
+  background-image: linear-gradient(#f9ed99, #f5df4D);
   font-size: small;
-  background-color: #77628c;
-  text-align: right;
-  margin-right: 15px;
+}
+
+footer p {
+  display: flex;
+  padding-top: 23rem;
+  padding-bottom: 3rem;
+  padding-right: 5rem;
+  justify-content: flex-end;
 }
