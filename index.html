@@ -16,87 +16,71 @@
 </head>
 
 <body>
-<navbar class="nav" id="navbar">
-  <ul class="nav-list">
-    <li><a href="#welcome-section">About</a></li>
-    <li><a href="#projects">My Work</a></li>
-    <li><a href="#contact">Contact Me</a></li>
+<nav>
+  <div>
+    <li id="skip"><a href="#main">Skip to Main Content</a></li>
+  </div>
+    <div id="item-div">
+      <li><a class="nav-item" href="#about">About</a></li>
+      <li><a class="nav-item" href="#contact">Contact Me</a></li>
+    </div>
   </ul>
-</navbar>
+</nav>
 
-<section class="welcome-section" id="welcome-section">
-  <div class="container">
-  <img id="hero_photo" src="https://drive.google.com/uc?id=1LunOZdMpZA7atyoEFCzazHnEcG7WFamZ" alt="Woman Using Computer Tablet to Tell Visual Stories">
-    <div class="overlay">
-      <div class="text">
-        <h1>I'm a Storyteller</h1>
-        <p id="who-writes">who writes code</p>
-        <div id="photo-credit">
-          <p><a href="https://www.123rf.com/photo_115077821_dream-of-space-and-rocket-with-business-woman-using-a-tablet-computer.html?downloaded=1" target="_blank">Image Source</a></p>
+<main id="main">
+    <h1>JoLynne W. Martinez</h1>
+    <h2>Web Accessibility Consulting Services</h2>
+    <h3>Member: International Association of Accessibility Professionals (IAAP)</h3>
+
+    <img id="hero-photo" src="assets/hero_photo.png" alt="Portrait of JoLynne saying that there's always more to learn about accessibility.">
+
+    <div id="about"></div>
+    <section id="about-section">
+      <h2>Let’s create digital experiences that are inclusive and welcoming for all users.</h2>
+      <ul id = "steps">
+        <li>Step 1: A free initial consultation to discuss the website you would like to evaluate</li>
+        <li>Step 2: I evaluate your site using both automated tools and manual techniques</li>
+        <li>Step 3: Together we'll review your written report and discuss recommendations for improving your site’s accessibility</li>      
+      </ul>
+      <p id="recommendations">My recommendations are based on the World Wide Web Consortium’s most recent Web Content Accessibility Guidelines (WCAG 2.0 and 2.1).</p>
+      <p id="beautiful">Accessible design is beautiful!</p>   
+      <div id="certificates">
+          <img id="w3c" class="column" src="assets/w3c.jpg" alt="Certificate from W3C verifying JoLynne Martinez has successfully completed Introduction to Web Accessibility course">
+          <img id="deque" class="column" src="assets/Deque_Collage.jpg" alt="Thirteen Deque University accessibility course-completion certificates earned by JoLynne Martinez">
       </div>
+
+      <div id="medium">
+        <a id="medium-link" href="https://jolynnemartinez.medium.com/" target="_blank" aria-describedby="new-window">Read my accessibility articles on Medium.</a>
       </div>
-  </div>
-</section>
 
-<section id="projects">
+    </section>
 
-  <h3 class="projects-section-header">Here's some of what I've written:</h3>
+    <section id="contact">
+      <h2>Contact me when you're ready to learn more about accessibility:</h2>
 
-  <div class="projects-grid">
+      <div id="contact-links">
+        <a href="https://github.com/JoLynneMartinez" target="_blank" class="contact-link" aria-describedby="new-window"><i class="fab fa-github" alt="opens in new window"></i> GitHub</a>
+        <a href="https://twitter.com/JW_Martinez" target="_blank" class="contact-link" aria-describedby="new-window"><i class="fab fa-twitter" alt="opens in new window"></i> Twitter</a>
+        <a href="https://www.linkedin.com/in/jolynne-martinez-b0b40411/" target="_blank" class="contact-link" aria-describedby="new-window"><i class="fab fa-linkedin" alt="opens in new window"></i> Linked In</a>
+        <a href="mailto:jolynnemartinez@gmail.com" class="contact-link" alt="opens your email to send a message to me" aria-describedby="new-email"><i class="fas fa-at"></i> Send Email</a>
+        <div id="tooltip">
+          <a href="tel:816-405-8896" class="contact-link" aria-describedby="tooltip"><i class="fas fa-mobile-alt" alt="sends my number to your mobile phone" aria-describedby="tooltiptext"></i> Send Text</a>
+          <span class="tooltiptext" aria-hidden="false">Clicking sends my number to your phone. Because I have a hearing impairment, please don't leave a voice message.</span>
+        </div>
+      </div>
 
-    <a href="https://www.fahluz.com/" target="_blank" class="project project-tile">
-            <img class="project-image"
- src="https://drive.google.com/uc?id=1Ysja1jSmiI-txxb5FsKMu1DCxDl5NybH" alt="project">
-            <p class="project-title">Small Business Website</p>
-      </a>
+    </section>  
 
-    <a href="https://codepen.io/jolynne/full/gOYWpao" target="_blank" class="project project-tile">
-            <img class="project-image"
- src="https://drive.google.com/uc?id=1VePq5xH3eULk3aZa2AEBnG-KXJCAJNOX" alt="project">
-            <p class="project-title">Survey Form</p>
-      </a>
+    <div hidden>
+      <span id="new-window">Opens an external site in a new window</span> 
+      <span id="new-email">Opens a blank email from your account addressed to me</span> 
+    </div>
 
-<a href="https://codepen.io/jolynne/full/PoYpNVg" target="_blank" class="project project-tile">
-            <img class="project-image"
- src="https://drive.google.com/uc?id=17jqCi73AL3P5OrmWK1iTRWV33hX5C3Rc" alt="project">
-            <p class="project-title">      Tribute Page</p>
-      </a>
-
-    <a href="https://codepen.io/jolynne/full/BaBdWwo" target="_blank" class="project project-tile">
-            <img class="project-image"
- src="https://drive.google.com/uc?id=1uo_6QdrHy5k9pl1A4FYbkAElX_7nShmz" alt="project">
-            <p class="project-title">Technical Information Page</p>
-      </a>
-
-  </div>
-
-  <a href="https://codepen.io/jolynne" class="btn btn-show-all" target="_blank">Show all<i class="fas fa-chevron-right"></i></a>
-
-  </section>
-
-<section id="contact" class="contact-section">
-
-  <div class="contact-section-header">
-    <h3>You have a story, too.</h3>
-    <p>How can I help tell it?</p>
-  </div>
-
-  <div class="contact-links">
-    <a id="profile-link" href="https://github.com/JoLynneMartinez" target="_blank" class="btn contact-details"><i class="fab fa-github"></i> GitHub</a>
-
-    <a href="https://twitter.com/JW_Martinez" target="_blank" class="btn contact-details"><i class="fab fa-twitter"></i> Twitter</a>
-
-    <a href="https://www.linkedin.com/in/jolynne-martinez-b0b40411/" target="_blank" class="btn contact-details"><i class="fab fa-linkedin"></i>Linked In</a>
-
-    <a href="mailto:jolynnemartinez@gmail.com" class="btn contact-details"><i class="fas fa-at"></i>Send Email</a>
-
-    <a href="tel:816-405-8896" class="btn contact-details"><i class="fas fa-mobile-alt"></i> Call me</a>
-
-  </div>
-</section>
+</main>
 
 <footer>
-  <p> &copy; 2019 JoLynne Walz Martinez</p>
+  <p id="copyright">&copy; 2021 JoLynne W. Martinez</p>
 </footer>
-  </body>
+
+</body>
 </html>
