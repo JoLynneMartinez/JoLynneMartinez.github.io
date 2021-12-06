@@ -235,7 +235,35 @@ h3 {
   outline: 0;
   color: #f5df4d;
   background-color: #3c3d3e;
+}
+
+#accessibility_statement {
+  width: fit-content;
+  padding: 1rem;
   border-radius: 1rem;
+  border: 2px solid #3c3d3e;
+  outline: 0;
+  color: #f5df4d;
+  background-color: #3c3d3e;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: solid;
+  margin-bottom: 3.5rem;
+  text-align: center;
+}
+
+details {
+  font-size: 76%;
+}
+
+summary {
+  padding-bottom: 1rem;
+}
+
+#conformance, #feedback {
+  font-size: 65%;
+  text-align: left;
+  padding: 1rem;
 }
 
 /* Contact section */
