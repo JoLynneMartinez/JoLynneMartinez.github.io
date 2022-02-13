@@ -1,2 +1,2 @@
 # JoLynneMartinez.github.io
-[![JoLynne Martinez Medium](https://medium.com/@jolynnemartinez)
+[JoLynne Martinez Medium](https://medium.com/@jolynnemartinez)
